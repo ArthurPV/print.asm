@@ -1,6 +1,6 @@
 # print.asm
 
-`print.asm` provides some printing functions written in assembly language.
+`print.asm` provides some printing functions written in assembly.
 
 Requirements:
 
