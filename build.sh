@@ -2,5 +2,5 @@
 
 set -e
 
-nasm -g -f elf64 print.asm -o print.o
-gcc -g print.o main.c 
+nasm -f elf64 print.asm -o print.o
+gcc print.o main.c 
