@@ -55,7 +55,6 @@ print_int:
   mov [rbp + 81], rdi ; store %0
   mov QWORD [rbp + 73], 0 ; digits_count := 0
   mov BYTE [rbp + 65], 0 ; is_neg = 0
-  jmp _handle_negative
 
 _handle_negative:
   cmp QWORD [rbp + 81], 0
@@ -65,7 +64,6 @@ _handle_negative:
 .body:
   mov BYTE [rbp + 65], 1 ; is_neg = 1
   neg QWORD [rbp + 81] ; %0 = -%0
-  jmp _convert_int_to_string
 
 _convert_int_to_string:
   ; NOTE: We need to jump on body, in case of %0 is equal to 0
@@ -90,7 +88,7 @@ _convert_int_to_string:
   jmp .loop
 
 .exit:
-  jmp _write_neg
+  nop
 
 _write_neg:
   cmp BYTE [rbp + 65], 1
@@ -103,7 +101,6 @@ _write_neg:
   mov rsi, NEGATIVE
   mov rdx, NEGATIVE_LEN
   syscall
-  jmp _write_int
 
 _write_int:
   jmp .loop
