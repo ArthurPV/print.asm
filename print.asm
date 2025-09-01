@@ -15,6 +15,8 @@ section .text
 global print_string
 global print_int
 
+; https://en.wikipedia.org/wiki/Function_prologue_and_epilogue
+
 ; C Calling Convention begin
 %macro ccc_begin 0
   push rbp
