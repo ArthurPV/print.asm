@@ -23,6 +23,7 @@ global print_int
 
 ; C Calling Convention end
 %macro ccc_end 0
+  mov rsp, rbp
   pop rbp
   ret
 %endmacro
